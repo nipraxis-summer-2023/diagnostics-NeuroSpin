@@ -8,7 +8,7 @@ You should put the code in this `findoutlie` directory on your Python PATH.
 
 This README file has instructions on how to get, validate and process the data.
 
-## Get the data
+## Get the data!
 
 ```
 cd data
@@ -29,13 +29,13 @@ Change directory back to root of repository
 cd ..
 ```
 
-## Check the data
+## Check the data!
 
 ```
 python3 scripts/validate_data.py data
 ```
 
-## Find outliers
+## Find outliers!
 
 ```
 python3 scripts/find_outliers.py data
