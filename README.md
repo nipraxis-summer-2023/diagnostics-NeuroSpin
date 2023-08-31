@@ -33,7 +33,20 @@ Change directory back to root of repository
 cd ..
 ```
 
-## Check the data!
+Add the hash_list file to Git:
+
+```
+git add group-*/hash_list.txt
+git commit -m "Add hash list file"
+```
+
+Change directory back to root of repository
+
+```
+cd ..
+```
+
+## Check the data
 
 ```
 python3 scripts/validate_data.py data
