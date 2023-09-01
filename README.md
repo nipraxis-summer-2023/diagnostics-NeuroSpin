@@ -19,7 +19,7 @@ tar xvf group_data.tar
 Add the hash_list file to Git:
 
 ```
-git add data/group-*/hash_list.txt
+git add group-*/hash_list.txt
 git commit -m "Add hash list file"
 ```
 
