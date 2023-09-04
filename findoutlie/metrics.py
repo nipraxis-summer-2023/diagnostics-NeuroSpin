@@ -4,6 +4,8 @@
 # Any imports you need
 # +++your code here+++
 
+import numpy as np
+
 
 def dvars(img):
     """ Calculate dvars metric on Nibabel image `img`
@@ -29,4 +31,17 @@ def dvars(img):
     # You may be be able to solve this in four lines, without a loop.
     # But solve it any way you can.
     # This is a placeholder, replace it to write your solution.
+
+    return np.sqrt(np.mean((np.diff(img.get_fdata()))**2, axis=(0,1,2)))
+
+    ## equivalent to :
+    # data = img.get_fdata()
+    # dvar_val_list = []
+    # for i in range(data.shape[-1]-1): #ajout -1 pour éviter out of range dans data[...,i+1]
+    #     data_1=data[...,i]
+    #     data_2=data[...,i+1]
+    #     dvar_val_list.append(np.sqrt(np.mean((data_1 - data_2)**2)))
+    
+    # return dvar_val_list
+    
     raise NotImplementedError('Code up this function')
