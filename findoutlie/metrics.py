@@ -32,16 +32,8 @@ def dvars(img):
     # But solve it any way you can.
     # This is a placeholder, replace it to write your solution.
 
-    return np.sqrt(np.mean((np.diff(img.get_fdata()))**2, axis=(0,1,2)))
-
-    ## equivalent to :
-    # data = img.get_fdata()
-    # dvar_val_list = []
-    # for i in range(data.shape[-1]-1): #ajout -1 pour éviter out of range dans data[...,i+1]
-    #     data_1=data[...,i]
-    #     data_2=data[...,i+1]
-    #     dvar_val_list.append(np.sqrt(np.mean((data_1 - data_2)**2)))
-    
-    # return dvar_val_list
+    data = img.get_fdata()
+    ddif = np.diff(data, axis=-1)   # Make default explicit.
+    return np.sqrt(np.mean(ddif ** 2, axis=(0,1,2)))
     
     raise NotImplementedError('Code up this function')
