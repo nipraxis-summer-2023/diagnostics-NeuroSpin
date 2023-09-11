@@ -1,5 +1,8 @@
 # Diagnostics project
 
+Coucou, baguette
+
+
 Scripts go in the `scripts` directory.
 
 Library code (Python modules) goes in the `findoutlie` directory.
@@ -8,12 +11,26 @@ You should put the code in this `findoutlie` directory on your Python PATH.
 
 This README file has instructions on how to get, validate and process the data.
 
-## Get the data
+## Get the data!
+d
 
 ```
 cd data
 curl -L https://figshare.com/ndownloader/files/34951602 -o group_data.tar
 tar xvf group_data.tar
+```
+
+Add the hash_list file to Git:
+
+```
+git add group-*/hash_list.txt
+git commit -m "Add hash list file"
+```
+
+Change directory back to root of repository
+
+```
+cd ..
 ```
 
 Add the hash_list file to Git:
@@ -35,7 +52,7 @@ cd ..
 python3 scripts/validate_data.py data
 ```
 
-## Find outliers
+## Find outliers!
 
 ```
 python3 scripts/find_outliers.py data
