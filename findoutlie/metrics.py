@@ -35,5 +35,3 @@ def dvars(img):
     data = img.get_fdata()
     ddif = np.diff(data, axis=-1)   # Make default explicit.
     return np.sqrt(np.mean(ddif ** 2, axis=(0,1,2)))
-    
-    raise NotImplementedError('Code up this function')

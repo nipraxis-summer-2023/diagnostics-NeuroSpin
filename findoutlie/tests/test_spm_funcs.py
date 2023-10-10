@@ -29,7 +29,7 @@ from spm_funcs import get_spm_globals, spm_global
 
 def test_spm_globals():
     # Test get_spm_globals and spm_global functions
-    example_path = MY_DIR / EXAMPLE_FILENAME
+    example_path = MY_DIR  / EXAMPLE_FILENAME
     expected_values = np.loadtxt(MY_DIR / 'global_signals.txt')
     glob_vals = get_spm_globals(example_path)
     assert glob_vals is not None, 'Did you forget to return the values?'
