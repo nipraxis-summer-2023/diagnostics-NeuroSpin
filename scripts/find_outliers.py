@@ -26,7 +26,7 @@ def print_outliers(data_directory):
         for out_ind in outliers:
             outlier_strs.append(str(out_ind))
         #print(', '.join([str(fname)] + outlier_strs))
-        print(f'outliers index of image {fname} : ', [i for i in range(len(outliers)) if outliers[i] == True])  
+        print(f'outliers index of image {fname} : ', outliers)  
 
 
 def get_parser():

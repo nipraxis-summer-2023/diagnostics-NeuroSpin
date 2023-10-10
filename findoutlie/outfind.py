@@ -15,6 +15,18 @@ from findoutlie.spm_funcs import get_spm_globals
 
 
 def detect_outliers(fname):
+    """ Return outlier indices in fname image.
+
+    Parameters
+    ----------
+    fname : str
+        image path.
+
+    Returns
+    -------
+    outliers : list
+        List of outlier indices in image.
+    """
     img = nib.load(fname)
 
     # compute metrics
@@ -28,13 +40,13 @@ def detect_outliers(fname):
     outliers_spm_iqr = iqr_detector(spm_values, iqr_proportion=3)
     outliers_spm_zscore = zscore_detector(spm_values, 3)
 
-    outliers = np.full(img.shape[-1], False)
+    # process detectors outputs for each volume to decide whether it is an outlier
+    outliers = []
     for i in range(img.shape[-1]):
-        # image i is an outlier if for both metrics at least one detector flag it
-        outliers[i] = outliers_dvars_iqr[i] + outliers_spm_iqr[i] + outliers_dvars_zscore[i] + outliers_spm_zscore[i]
-
-    #outliers_all = pd.DataFrame(np.array([outliers_dvars_iqr, outliers_dvars_zscore, outliers_spm_iqr, outliers_spm_zscore]).T, columns = ['dvars_iqr', 'dvars_zscore', 'spm_iqr', 'spm_zscore'], index = range(1, img.shape[-1] + 1))
-    #outliers_all = outliers_all[outliers_all.any(axis=1)]
+        is_outlier = outliers_dvars_iqr[i] or outliers_spm_iqr[i] or outliers_dvars_zscore[i] or outliers_spm_zscore[i]
+        if is_outlier:
+            outliers.append(i)
+    
     return outliers
 
 
